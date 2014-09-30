@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite>
+	<case id="1001">
+		<email>dung.pham@s3corp.com.vn</email>
+	</case>
+	<case id="1002">
+		<email>anh.pham@s3corp.com.vn</email>
+	</case>
+	<case id="1003">
+		<email>anh.pham@s3corp.com.vn</email>
+	</case>
+	
+</testsuite>
