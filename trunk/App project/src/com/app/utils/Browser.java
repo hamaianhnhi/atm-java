@@ -1,8 +1,11 @@
 package com.app.utils;
 
+import java.io.File;
 import java.net.MalformedURLException;
 import java.util.List;
 import org.openqa.selenium.By;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -39,7 +42,6 @@ public class Browser {
 		default:
 			break;
 		}
-		
 	}
 	
 	/**
@@ -69,8 +71,8 @@ public class Browser {
 	}
 	
 	/**
-	 * 
-	 * @param str
+	 * find list of Element
+	 * @param str value of locator
 	 * @return
 	 */
 	public List<WebElement> findElements(String str) {
@@ -170,10 +172,13 @@ public class Browser {
 		return driver.getTitle();
 	}
 	
+
 	/**
-	 * 
+	 * take screen shot
+	 * @return File
 	 */
-	public void takeScreenshot() {
-		
+	public File takeScreenshot() {
+		File scrFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+		return scrFile;
 	}
 }
