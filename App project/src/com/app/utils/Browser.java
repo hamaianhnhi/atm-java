@@ -11,12 +11,12 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
+import static com.app.utils.Constant.CHROME_PATH;
+import static com.app.utils.Constant.IE_PATH;
 
 public class Browser {
 
 	private WebDriver driver;
-	private String chromePath ="ReferenceLibraries/chromedriver.exe";
-	private String iePath="ReferenceLibraries/IEDriverServer.exe";
 	
 	/**
 	 * init new driver
@@ -25,14 +25,14 @@ public class Browser {
 	public Browser (String browserType) {
 		switch (BrowserType.fromString(browserType)) {
 		case CHROME:
-			System.setProperty("webdriver.chrome.driver", chromePath);
+			System.setProperty("webdriver.chrome.driver", CHROME_PATH);
 			this.driver = new ChromeDriver();
 			break;
 		case FIREFOX:
 			this.driver = new FirefoxDriver();
 			break;
 		case IE:
-			System.setProperty("webdriver.ie.driver", iePath);
+			System.setProperty("webdriver.ie.driver", IE_PATH );
 			this.driver = new InternetExplorerDriver();
 			break;
 		case ANDROID:
