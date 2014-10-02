@@ -2,6 +2,7 @@ package com.app.systemadmin;
 
 import java.net.MalformedURLException;
 
+import org.testng.ITestResult;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.AfterMethod;
 
@@ -18,7 +19,11 @@ public class TestBase {
 	}
 	
 	@AfterMethod
-	public void afterTest (){
+	public void afterTest (ITestResult testResult ){
+		// takes screen shot if testcase is FAIL
+		if (testResult.getStatus() == ITestResult.FAILURE) {
+			getBrowser().takeScreenshot();
+		}
 		getBrowser().exit();
 		
 	}
