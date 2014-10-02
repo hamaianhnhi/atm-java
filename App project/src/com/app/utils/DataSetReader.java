@@ -28,7 +28,7 @@ public class DataSetReader {
 		
 		List<String> arrData = new ArrayList<String>(); 
 		
-		arrData = csvReader.getDatasetByField(key);
+		arrData = this.csvReader.getDatasetByField(key);
 		return arrData;
 		
 	}
