@@ -10,6 +10,7 @@ import java.util.List;
 import static com.app.utils.Constant.SCREENSHOT_PATH;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
@@ -73,7 +74,7 @@ public class Browser {
 	 * @param element
 	 */
 	public void clickOnElement(WebElement element) {
-		
+		highlightElement(element);
 		element.click();
 	}
 	
@@ -210,5 +211,27 @@ public class Browser {
 	public String[] split(String str, String regex) {
 		String arrstr[] = str.split(regex);
 		return arrstr;
+	}
+	
+	/**
+	 * high light element
+	 * @param element
+	 */
+	public void highlightElement(WebElement element) {
+
+	    for (int i = 0; i < 2; i++) {
+
+	        JavascriptExecutor js = (JavascriptExecutor) driver;
+
+	        js.executeScript("arguments[0].setAttribute('style', arguments[1]);",
+
+	                element, "color: yellow; border: 2px solid yellow;");
+
+	        js.executeScript("arguments[0].setAttribute('style', arguments[1]);",
+
+	                element, "");
+
+	    }
+
 	}
 }
