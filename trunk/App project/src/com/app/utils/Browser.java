@@ -1,8 +1,14 @@
 package com.app.utils;
 
 import java.io.File;
+import java.io.IOException;
 import java.net.MalformedURLException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
+import static com.app.utils.Constant.SCREENSHOT_PATH;
+import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
@@ -11,6 +17,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
+
 import static com.app.utils.Constant.CHROME_PATH;
 import static com.app.utils.Constant.IE_PATH;
 
@@ -176,9 +183,21 @@ public class Browser {
 	/**
 	 * take screen shot
 	 * @return File
+	 * @throws IOException 
 	 */
-	public File takeScreenshot() {
+	public File takeScreenshot()  {
+		
+		DateFormat dateFormat = new SimpleDateFormat("yyyy_MM_dd_HH_mm_ss");
+		//get current date time with Date()
+		Date date = new Date();
 		File scrFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+		try {
+			FileUtils.copyFile(scrFile, new File(SCREENSHOT_PATH +dateFormat.format(date).toString()+".png"));
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 		return scrFile;
 	}
 	
