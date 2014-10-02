@@ -79,7 +79,7 @@ public class Browser {
 		
 		String locatorType = "";
 		String locateValue = "";
-		String arrstr[] = str.split("::");
+		String arrstr[] = split(str, "::");
 		locatorType = arrstr[0];
 		locateValue = arrstr[1];
 		List<WebElement> arrResult = null;
@@ -126,7 +126,7 @@ public class Browser {
 		
 		String locatorType = "";
 		String locateValue = "";
-		String arrstr[] = str.split("::");
+		String arrstr[] = split(str, "::");
 		locatorType = arrstr[0];
 		locateValue = arrstr[1];
 		WebElement result = null;
@@ -180,5 +180,16 @@ public class Browser {
 	public File takeScreenshot() {
 		File scrFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
 		return scrFile;
+	}
+	
+	/**
+	 * split string to String [] by regex
+	 * @param str
+	 * @param regex
+	 * @return array of String
+	 */
+	public String[] split(String str, String regex) {
+		String arrstr[] = str.split(regex);
+		return arrstr;
 	}
 }
