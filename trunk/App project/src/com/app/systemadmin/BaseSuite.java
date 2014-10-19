@@ -8,7 +8,7 @@ import org.testng.annotations.AfterMethod;
 
 import com.app.utils.Browser;
 
-public class TestBase {
+public class BaseSuite {
 	
 	protected ThreadLocal<Browser> threadBrowser = null;
 	
