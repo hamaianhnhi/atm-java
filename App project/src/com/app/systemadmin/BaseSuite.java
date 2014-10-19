@@ -26,7 +26,7 @@ public class BaseSuite {
 	
 	@AfterMethod
 	public void afterTest (ITestResult testResult ){
-		// takes screen shot if testcase is FAIL
+		// takes screen shot if test case is FAIL
 		if (testResult.getStatus() == ITestResult.FAILURE) {
 			getBrowser().takeScreenshot();
 		}
