@@ -10,6 +10,11 @@ import org.testng.annotations.Test;
 
 import com.app.utils.ExcelReader;
 
+/**
+ * This class contains all test case for Manage user
+ * @author Chuot Con
+ *
+ */
 public class ManageUsers extends BaseSuite {
 
 	

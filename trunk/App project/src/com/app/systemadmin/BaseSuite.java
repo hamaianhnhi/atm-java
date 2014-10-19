@@ -8,6 +8,12 @@ import org.testng.annotations.AfterMethod;
 
 import com.app.utils.Browser;
 
+/**
+ * This class contains setup and teardown functions
+ * @author Chuot Con
+ *
+ */
+
 public class BaseSuite {
 	
 	protected ThreadLocal<Browser> threadBrowser = null;
@@ -27,6 +33,7 @@ public class BaseSuite {
 		getBrowser().exit();
 		
 	}
+	
 	/**
 	 * get Browser
 	 * @return Browser
