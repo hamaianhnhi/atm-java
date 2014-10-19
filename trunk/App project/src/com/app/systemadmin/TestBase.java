@@ -12,7 +12,7 @@ public class TestBase {
 	
 	protected ThreadLocal<Browser> threadBrowser = null;
 	
-	@BeforeMethod
+	@BeforeMethod()
 	public void beforeTest () throws MalformedURLException {
 		this.threadBrowser = new ThreadLocal<Browser>();
 		this.threadBrowser.set(new Browser("chrome"));

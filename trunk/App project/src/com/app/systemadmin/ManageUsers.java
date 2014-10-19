@@ -20,11 +20,15 @@ public class ManageUsers extends TestBase {
 	    return data;
     }
 	
-	@Test(dataProvider = "invalid")
+	@Test(dataProvider = "invalid", description="dhauidyad", priority = 2, dependsOnMethods = {"test23"} )
 	public void validCase1(String username, String password, String expectResult) throws InterruptedException {
+		
 		  System.out.println("abc");
 
 	}
-	
+	@Test(priority = 1)
+	public void test23() {
+		int a = 1/0;
+	}
 	
 }
