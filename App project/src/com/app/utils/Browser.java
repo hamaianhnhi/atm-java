@@ -60,6 +60,7 @@ public class Browser {
 		this.driver.get(url);
 		System.out.println("Go to page>>>> "+ url );
 	}
+	
 	/**
 	 * Close browser
 	 */

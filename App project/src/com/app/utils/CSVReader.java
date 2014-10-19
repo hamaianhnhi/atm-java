@@ -81,4 +81,46 @@ public class CSVReader {
 
 		return arrData;
 	}
+	
+	public  String[][] getData () throws IOException {
+		String[][] result = null;
+//		List<String> arrData = new ArrayList<String>();
+//		String line = "";
+		String firstRow = "";
+//		int fieldIndex = 0;
+		try {
+
+			this.bufferedReader = new BufferedReader(new FileReader(filePath));
+			try {
+
+				firstRow = this.bufferedReader.readLine();
+				this.bufferedReader.mark(0);
+
+			} catch (Exception e) {
+				System.err.println(e);
+			}
+			String[] header = firstRow.split(this.cvsSplitBy);
+			int numOfCol = header.length;
+			int numOfRow = 0;
+			while (this.bufferedReader.readLine()!= null) {
+				numOfRow++;
+			}
+			this.bufferedReader.reset();
+			result = new String[numOfCol][numOfRow];
+
+			
+
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} finally {
+			if (this.bufferedReader != null) {
+				try {
+					this.bufferedReader.close();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+		return result;
+	}
 }
