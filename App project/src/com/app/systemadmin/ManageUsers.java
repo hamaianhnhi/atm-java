@@ -10,7 +10,7 @@ import org.testng.annotations.Test;
 
 import com.app.utils.ExcelReader;
 
-public class ManageUsers extends TestBase {
+public class ManageUsers extends BaseSuite {
 
 	
 	
@@ -26,6 +26,7 @@ public class ManageUsers extends TestBase {
 		  System.out.println("abc");
 
 	}
+	
 	@Test(priority = 1)
 	public void test23() {
 		int a = 1/0;
